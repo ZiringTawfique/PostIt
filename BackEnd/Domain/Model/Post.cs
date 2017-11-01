@@ -7,6 +7,8 @@ namespace Domain.Model
 
 		public string Title { get; set; }
 
+        public DateTime DateAdded { get; set; }
+
 		//public User User { get; set; }
 
 		//public Category Category { get; set; }
@@ -19,7 +21,7 @@ namespace Domain.Model
 
         //public LostAndFound LostAndFoundPost { get; set; }
 
-        public bool Urgent { get; set; }
+        public bool isUrgent { get; set; }
 
 
 
