@@ -7,4 +7,4 @@ namespace Domain.Interfaces
     {
         void SetPost(Post post);
     }
-}
+}   
