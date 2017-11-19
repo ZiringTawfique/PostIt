@@ -16,7 +16,7 @@ namespace DataView
          
         }
 
-        public IMongoCollection<Post> AppUsers
+        public IMongoCollection<Post> PostCollection
         {
             get
             {

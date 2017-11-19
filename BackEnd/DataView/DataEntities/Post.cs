@@ -1,6 +1,9 @@
 ﻿using System;
+using MongoDB.Bson.Serialization.Attributes;
+
 namespace DataView.DataEntities
 {
+    [BsonIgnoreExtraElements]
     public class Post
     {
         public int PostId { get; set; }
