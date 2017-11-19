@@ -18,12 +18,17 @@ namespace PostIt.BackEnd.Controllers
             _useCases = useCases;
 
         }
-
         // GET api/values
+        //[NoCache]
         [HttpGet]
-        public IEnumerable<string> Get()
+        public Task<ICollection<Post>> Get()
         {
-            return new string[] { "value1", "value2" };
+            return GetPostInternalAsync();
+        }
+
+        private async Task<ICollection<Post>> GetPostInternalAsync()
+        {
+            return await _useCases.GetAllPostAsync();
         }
 
         // GET api/values/5

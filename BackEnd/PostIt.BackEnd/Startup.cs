@@ -2,8 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
+using DataView;
+using DataView.Adapters;
+using DataView.DataEntities;
+using DataView.Interface;
+using DataView.Mapping;
 using Domain;
 using Domain.Interfaces;
+using Domain.Model;
+using Domain.Ports;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -26,7 +34,16 @@ namespace PostIt.BackEnd
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<IUseCases, UseCases>();
+            services.AddTransient<IRepository, MongoRepository>();
+            services.AddTransient<IApplicationDataView, ApplicationDataView>();
+            services.AddTransient<IToDomainModelMappingFacade, ToDomainModelMappingFacade>();
             services.AddMvc();
+            services.AddAutoMapper();
+			services.Configure<MongoDBSettings>(options =>
+			{
+				options.ConnectionString = Configuration.GetSection("MongoConnection:ConnectionString").Value;
+				options.Database = Configuration.GetSection("MongoConnection:Database").Value;
+			});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Domain.Model;
 
 namespace Domain.Interfaces
@@ -10,7 +11,7 @@ namespace Domain.Interfaces
 
         void SetUserInfor();
 
-        ICollection<Post> GetAllPost();
+        Task<ICollection<Post>> GetAllPostAsync();
 
         Post GetSinglePost();
 

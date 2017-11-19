@@ -1,20 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Domain.Interfaces;
 using Domain.Model;
+using Domain.Ports;
 
 namespace Domain
 {
     public class UseCases: IUseCases
     {
-        public UseCases( )
+        IRepository _mongoRepo;
+        public UseCases(IRepository MongoRepo )
         {
+            _mongoRepo = MongoRepo;
 
         }
 
-        public ICollection<Post> GetAllPost()
+        public Task<ICollection<Post>> GetAllPostAsync()
         {
-            throw new NotImplementedException();
+            return _mongoRepo.GetAllPostAsync();
         }
 
         public Post GetSinglePost()
@@ -29,7 +33,7 @@ namespace Domain
 
         public void SetPost(Post Post)
 		{
-
+            _mongoRepo.SetPost(Post);
 		}
 
         public void SetUserInfor()
