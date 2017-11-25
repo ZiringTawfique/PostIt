@@ -1,2 +1,2 @@
 # PostIt
-Walking sekeleton for Post It application
+Walking skeleton for Post It application
