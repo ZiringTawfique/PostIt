@@ -31,9 +31,9 @@ namespace Domain
             throw new NotImplementedException();
         }
 
-        public void SetPost(Post Post)
+        public void AddPost(Post Post)
 		{
-            _mongoRepo.SetPost(Post);
+            _mongoRepo.AddPost(Post);
 		}
 
         public void SetUserInfor()

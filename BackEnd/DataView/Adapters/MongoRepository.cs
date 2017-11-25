@@ -11,11 +11,13 @@ namespace DataView.Adapters
     {
         private IApplicationDataView _applicationDataView;
         private IToDomainModelMappingFacade _toDomainModelMappingFacade;
-        public MongoRepository(IApplicationDataView applicationDataView, IToDomainModelMappingFacade toDomainModelMappingFacade)
+        private IToDataEntityMappingFacade _toDataEntityMappingFacade;
+        public MongoRepository(IApplicationDataView applicationDataView, IToDomainModelMappingFacade toDomainModelMappingFacade, IToDataEntityMappingFacade toDataEntityMappingFacade)
         {
 
             _applicationDataView = applicationDataView;
             _toDomainModelMappingFacade = toDomainModelMappingFacade;
+            _toDataEntityMappingFacade = toDataEntityMappingFacade;
         }
 
         public async Task<ICollection<Post>> GetAllPostAsync()
@@ -35,9 +37,10 @@ namespace DataView.Adapters
             throw new NotImplementedException();
         }
 
-        public void SetPost(Post post)
+        public void AddPost(Post post)
         {
-            throw new NotImplementedException();
+            var mappedToDataEntity = _toDataEntityMappingFacade.Map(post);
+            _applicationDataView.AddPost(mappedToDataEntity);
         }
 
         public void SetUserInfor()

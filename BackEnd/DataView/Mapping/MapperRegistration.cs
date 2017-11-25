@@ -11,7 +11,15 @@ namespace DataView.Mapping
             var mapperConfig = new MapperConfiguration(
                 config =>
             {
+                //From Data Entity to Domain Model
                 config.CreateMap<Domain.Model.Post, Post>();
+
+
+
+
+                //From Domain Model to Data Entity 
+                config.CreateMap<Post, Domain.Model.Post>();
+
             });
 
             return mapperConfig.CreateMapper();

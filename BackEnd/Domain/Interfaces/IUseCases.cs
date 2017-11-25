@@ -7,7 +7,7 @@ namespace Domain.Interfaces
 {
     public interface IUseCases
     {
-        void SetPost(Post post);
+        void AddPost(Post post);
 
         void SetUserInfor();
 

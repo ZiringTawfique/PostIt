@@ -40,9 +40,9 @@ namespace PostIt.BackEnd.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] Post AdPost)
+        public void Post([FromBody] Post post)
         {
-            _useCases.SetPost(AdPost);
+            _useCases.AddPost(post);
 
         }
 
@@ -50,6 +50,7 @@ namespace PostIt.BackEnd.Controllers
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]string value)
         {
+            
         }
 
         // DELETE api/values/5

@@ -7,7 +7,7 @@ namespace Domain.Ports
 {
     public interface IRepository
     {
-		void SetPost(Post post);
+		void AddPost(Post post);
 
 		void SetUserInfor();
 

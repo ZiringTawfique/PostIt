@@ -37,6 +37,7 @@ namespace PostIt.BackEnd
             services.AddTransient<IRepository, MongoRepository>();
             services.AddTransient<IApplicationDataView, ApplicationDataView>();
             services.AddTransient<IToDomainModelMappingFacade, ToDomainModelMappingFacade>();
+            services.AddTransient<IToDataEntityMappingFacade , ToDataEntityMappingFacade>();
             services.AddMvc();
             services.AddAutoMapper();
 			services.Configure<MongoDBSettings>(options =>

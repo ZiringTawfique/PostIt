@@ -20,25 +20,26 @@ namespace DataView
 
         public async Task<ICollection<Post>> GetAllPostAsync()
         {
-            //var allPosts = new List<Post>();
+            
             try
             {
-            //var dataPost = new Post { 
-            //    PostId = 1,
-            //    isUrgent = true,
-            //    Title = "Getting post data entity"
-            //};
-
-            //var dataPost2 = new Post
-            //{
-            //    PostId = 2,
-            //    isUrgent = true,
-            //    Title = "Getting post data entity22"
-            //};
-            //allPosts.Add(dataPost);
-            //allPosts.Add(dataPost2);
              var x =  await _context.PostCollection.Find(_ => true).ToListAsync();
              return x;
+            }
+            catch (Exception ex)
+            {
+                // log or manage the exception
+                throw ex;
+            }
+        }
+
+
+
+        public async Task AddPost(Post post)
+        {
+            try
+            {
+                await _context.PostCollection.InsertOneAsync(post);
             }
             catch (Exception ex)
             {
