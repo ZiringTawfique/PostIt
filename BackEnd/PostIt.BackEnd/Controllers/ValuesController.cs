@@ -53,8 +53,9 @@ namespace PostIt.BackEnd.Controllers
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<bool> Delete(int id)
         {
+            return await _useCases.DeletePost(id);
         }
 
         #region PRIVATE METHODS

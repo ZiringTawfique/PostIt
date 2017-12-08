@@ -11,6 +11,8 @@ namespace Domain.Interfaces
 
         void SetUserInfor();
 
+        Task<bool> DeletePost(int postid);
+
         Task<ICollection<Post>> GetAllPostAsync();
 
         Post GetSinglePost();

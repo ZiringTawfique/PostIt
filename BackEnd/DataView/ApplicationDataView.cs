@@ -47,5 +47,22 @@ namespace DataView
                 throw ex;
             }
         }
+
+        public async Task<bool> DeletePost(int postId){
+            try
+            {
+                var builder = Builders<Post>.Filter;
+                var filter = builder.Eq(x => x.PostId, postId);
+                var xx =  await _context.PostCollection.DeleteOneAsync(filter);
+
+                return xx.IsAcknowledged && xx.DeletedCount > 0;
+            }
+            catch (Exception ex)
+            {
+                // log or manage the exception
+                throw ex;
+            }
+
+        }
     }
 }

@@ -9,6 +9,6 @@ namespace DataView.Interface
     {
         Task <ICollection<Post>> GetAllPostAsync();
         Task AddPost(Post post);
-     
+        Task<bool> DeletePost(int postId);
     }
 }

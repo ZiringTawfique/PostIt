@@ -47,5 +47,13 @@ namespace DataView.Adapters
         {
             throw new NotImplementedException();
         }
+
+        public async Task<bool> DeletePost(int postId){
+            
+            var isDeleted = await _applicationDataView.DeletePost(postId);
+
+            return isDeleted;
+        }
+
     }
 }

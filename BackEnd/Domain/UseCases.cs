@@ -16,9 +16,9 @@ namespace Domain
 
         }
 
-        public Task<ICollection<Post>> GetAllPostAsync()
+        public async Task<ICollection<Post>> GetAllPostAsync()
         {
-            return _mongoRepo.GetAllPostAsync();
+            return await _mongoRepo.GetAllPostAsync();
         }
 
         public Post GetSinglePost()
@@ -39,6 +39,11 @@ namespace Domain
         public void SetUserInfor()
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<bool> DeletePost(int postid){
+
+            return await _mongoRepo.DeletePost(postid);
         }
     }
 
