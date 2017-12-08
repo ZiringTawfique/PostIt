@@ -27,8 +27,7 @@ namespace PostIt.BackEnd.Controllers
             return GetPostInternalAsync();
         }
 
-    
-
+   
         // GET api/values/5
         [HttpGet("{id}")]
         public Task<Post> Get(int id)

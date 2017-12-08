@@ -23,8 +23,10 @@ namespace DataView
             
             try
             {
-             var x =  await _context.PostCollection.Find(_ => true).ToListAsync();
-             return x;
+             var allPosts =  await _context.PostCollection.Find(_ => true).ToListAsync();
+             
+             return allPosts;
+
             }
             catch (Exception ex)
             {
@@ -53,9 +55,9 @@ namespace DataView
             {
                 var builder = Builders<Post>.Filter;
                 var filter = builder.Eq(x => x.PostId, postId);
-                var xx =  await _context.PostCollection.DeleteOneAsync(filter);
+                var deletePost =  await _context.PostCollection.DeleteOneAsync(filter);
 
-                return xx.IsAcknowledged && xx.DeletedCount > 0;
+                return deletePost.IsAcknowledged && deletePost.DeletedCount > 0;
             }
             catch (Exception ex)
             {
