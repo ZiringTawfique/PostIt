@@ -8,6 +8,6 @@ namespace Domain.Model
         public string Email { get; set; }
         public string Address { get; set; }
         public int TeleNumber { get; set; }
-        public Organisation Organisation { get; set; }
+        //public Organisation Organisation { get; set; }
     }
 }

@@ -7,6 +7,5 @@ namespace Domain.Model
 
 		public double Size { get; set; }
 
-        public Category Category { get; set; }
     }
 }

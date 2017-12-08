@@ -18,6 +18,7 @@ namespace PostIt.BackEnd.Controllers
             _useCases = useCases;
 
         }
+
         // GET api/values
         //[NoCache]
         [HttpGet]
@@ -26,16 +27,13 @@ namespace PostIt.BackEnd.Controllers
             return GetPostInternalAsync();
         }
 
-        private async Task<ICollection<Post>> GetPostInternalAsync()
-        {
-            return await _useCases.GetAllPostAsync();
-        }
+    
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public Task<Post> Get(int id)
         {
-            return "value";
+            return null;
         }
 
         // POST api/values
@@ -58,5 +56,15 @@ namespace PostIt.BackEnd.Controllers
         public void Delete(int id)
         {
         }
+
+        #region PRIVATE METHODS
+
+        private async Task<ICollection<Post>> GetPostInternalAsync() => await _useCases.GetAllPostAsync();
+  
+
+        #endregion
+
+      
+    
     }
 }

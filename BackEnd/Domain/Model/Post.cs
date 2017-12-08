@@ -7,13 +7,13 @@ namespace Domain.Model
 
 		public string Title { get; set; }
 
-        //public DateTime DateAdded { get; set; }
+        public DateTime DateAdded { get; set; }
 
-		//public User User { get; set; }
+		public User User { get; set; }
 
-		//public Category Category { get; set; }
+		public Category Category { get; set; }
 
-		//public Item ItemForSalePost { get; set; }
+        public Item ItemInfo { get; set; }
 
 		//public Recommendation RecommendationPost { get; set; }
 

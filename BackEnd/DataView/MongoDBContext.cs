@@ -23,6 +23,14 @@ namespace DataView
                 return _database.GetCollection<Post>("Post");
             }
         }
+
+        public IMongoCollection<Users> UsersCollection
+        {
+            get
+            {
+                return _database.GetCollection<Users>("Users");
+            }
+        }
      }
 
 }
