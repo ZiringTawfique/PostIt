@@ -18,6 +18,23 @@ namespace DataView
             _context = new MongoDBContext(settings);
         }
 
+        public async Task<ICollection<Post>> SearchAsync(string searchStrn)
+        {
+
+            try
+            {
+                var searchResult = await _context.PostCollection.Find(_ => true).ToListAsync();
+
+                return searchResult;
+
+            }
+            catch (Exception ex)
+            {
+                // log or manage the exception
+                throw ex;
+            }
+        }
+
         public async Task<ICollection<Post>> GetAllPostAsync()
         {
             

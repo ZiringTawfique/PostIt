@@ -13,6 +13,8 @@ namespace Domain.Ports
 
         Task<bool>  DeletePost(int postid);
 
+        Task<ICollection<Post>> SearchAsync(string searchStr);
+
         Task<ICollection<Post>> GetAllPostAsync();
 
         Task<Post> GetSinglePost(int postid);

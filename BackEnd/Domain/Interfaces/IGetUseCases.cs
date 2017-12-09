@@ -5,12 +5,8 @@ using Domain.Model;
 
 namespace Domain.Interfaces
 {
-    public interface IUseCases
+    public interface IGetUseCases
     {
-        void AddPost(Post post);
-
-        void SetUserInfor();
-
         Task<bool> DeletePost(int postid);
 
         Task<ICollection<Post>> GetAllPostAsync();

@@ -10,7 +10,6 @@ using DataView.Interface;
 using DataView.Mapping;
 using Domain;
 using Domain.Interfaces;
-using Domain.Model;
 using Domain.Ports;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -33,7 +32,9 @@ namespace PostIt.BackEnd
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<IUseCases, UseCases>();
+            services.AddTransient<IGetUseCases, GetUseCases>();
+            services.AddTransient<IPostUseCases, PostUseCases>();
+            services.AddTransient<ISearchUseCases, SearchUseCases>();
             services.AddTransient<IRepository, MongoRepository>();
             services.AddTransient<IApplicationDataView, ApplicationDataView>();
             services.AddTransient<IToDomainModelMappingFacade, ToDomainModelMappingFacade>();

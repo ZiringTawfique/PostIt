@@ -20,6 +20,13 @@ namespace DataView.Adapters
             _toDataEntityMappingFacade = toDataEntityMappingFacade;
         }
 
+        public async Task<ICollection<Post>> SearchAsync(string searchStr)
+        {
+            var searchResult = await _applicationDataView.SearchAsync(searchStr);
+            var mappedobject = _toDomainModelMappingFacade.Map(searchResult);
+            return mappedobject;
+        }
+
         public async Task<ICollection<Post>> GetAllPostAsync()
         {
             var allPosts = await _applicationDataView.GetAllPostAsync();

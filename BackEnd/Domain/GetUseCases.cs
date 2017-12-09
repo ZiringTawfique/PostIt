@@ -7,10 +7,10 @@ using Domain.Ports;
 
 namespace Domain
 {
-    public class UseCases: IUseCases
+    public class GetUseCases: IGetUseCases
     {
         IRepository _mongoRepo;
-        public UseCases(IRepository MongoRepo )
+        public GetUseCases(IRepository MongoRepo )
         {
             _mongoRepo = MongoRepo;
 
@@ -20,6 +20,8 @@ namespace Domain
         {
             return await _mongoRepo.GetAllPostAsync();
         }
+
+
 
         public async Task<Post> GetSinglePost(int postid)
         {
@@ -31,20 +33,13 @@ namespace Domain
             throw new NotImplementedException();
         }
 
-        public void AddPost(Post Post)
-		{
-            _mongoRepo.AddPost(Post);
-		}
 
-        public void SetUserInfor()
-        {
-            throw new NotImplementedException();
-        }
 
         public async Task<bool> DeletePost(int postid){
 
             return await _mongoRepo.DeletePost(postid);
         }
+
     }
 
 }
