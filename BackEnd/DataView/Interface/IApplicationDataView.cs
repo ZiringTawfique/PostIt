@@ -8,6 +8,7 @@ namespace DataView.Interface
     public interface IApplicationDataView
     {
         Task <ICollection<Post>> GetAllPostAsync();
+        Task<Post> GetSinglePost(int postid);
         Task AddPost(Post post);
         Task<bool> DeletePost(int postId);
     }

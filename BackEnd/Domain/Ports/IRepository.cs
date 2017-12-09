@@ -15,7 +15,7 @@ namespace Domain.Ports
 
         Task<ICollection<Post>> GetAllPostAsync();
 
-		Post GetSinglePost();
+        Task<Post> GetSinglePost(int postid);
 
 		User GetUserInfor();
     }

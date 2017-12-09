@@ -30,9 +30,9 @@ namespace PostIt.BackEnd.Controllers
    
         // GET api/values/5
         [HttpGet("{id}")]
-        public Task<Post> Get(int id)
+        public async Task<Post> Get(int id)
         {
-            return null;
+            return await _useCases.GetSinglePost(id);
         }
 
         // POST api/values
@@ -43,12 +43,12 @@ namespace PostIt.BackEnd.Controllers
 
         }
 
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
-        {
+        //// PUT api/values/5
+        //[HttpPut("{id}")]
+        //public void Put(int id, [FromBody]string value)
+        //{
             
-        }
+        //}
 
         // DELETE api/values/5
         [HttpDelete("{id}")]

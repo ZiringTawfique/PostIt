@@ -21,9 +21,9 @@ namespace Domain
             return await _mongoRepo.GetAllPostAsync();
         }
 
-        public Post GetSinglePost()
+        public async Task<Post> GetSinglePost(int postid)
         {
-            throw new NotImplementedException();
+            return await _mongoRepo.GetSinglePost(postid);
         }
 
         public User GetUserInfor()

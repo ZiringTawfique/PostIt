@@ -24,5 +24,13 @@ namespace DataView.Mapping
             var mappedToDomain = _mapper.Map<ICollection<Domain.Model.Post>>(posts);
             return mappedToDomain;
         }
+
+
+        public Domain.Model.Post Map(DataEntities.Post post)
+        {
+            var mappedToDomain = _mapper.Map<Domain.Model.Post>(post);
+            return mappedToDomain;
+        }
     }
+
 }

@@ -27,9 +27,12 @@ namespace DataView.Adapters
             return mappedobject;
         }
 
-        public Post GetSinglePost()
+        public async Task<Post> GetSinglePost(int postId)
         {
-            throw new NotImplementedException();
+            var singlePost = await _applicationDataView.GetSinglePost(postId);
+            var mappedobject = _toDomainModelMappingFacade.Map(singlePost);
+            return mappedobject;
+            
         }
 
         public User GetUserInfor()

@@ -35,6 +35,23 @@ namespace DataView
             }
         }
 
+        public async Task<Post> GetSinglePost(int postid)
+        {
+            var filter = Builders<Post>.Filter.Eq(x => x.PostId, postid);
+
+            try
+            {
+                var singlePost = await _context.PostCollection.Find(filter).FirstOrDefaultAsync();
+          
+                return singlePost;
+
+            }
+            catch (Exception ex)
+            {
+                // log or manage the exception
+                throw ex;
+            }
+        }
 
 
         public async Task AddPost(Post post)
