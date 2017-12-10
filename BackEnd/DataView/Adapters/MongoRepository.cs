@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using DataView.Interface;
+using Domain.Aggregate;
 using Domain.Model;
 using Domain.Ports;
 
@@ -20,9 +21,9 @@ namespace DataView.Adapters
             _toDataEntityMappingFacade = toDataEntityMappingFacade;
         }
 
-        public async Task<ICollection<Post>> SearchAsync(string searchStr)
+        public async Task<ICollection<Post>> SearchAsync(SearchParameters searchParameter)
         {
-            var searchResult = await _applicationDataView.SearchAsync(searchStr);
+            var searchResult = await _applicationDataView.SearchAsync(searchParameter.SearchWord);
             var mappedobject = _toDomainModelMappingFacade.Map(searchResult);
             return mappedobject;
         }

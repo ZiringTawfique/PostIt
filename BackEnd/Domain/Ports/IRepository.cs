@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Domain.Aggregate;
 using Domain.Model;
 
 namespace Domain.Ports
@@ -11,9 +12,9 @@ namespace Domain.Ports
 
 		void SetUserInfor();
 
-        Task<bool>  DeletePost(int postid);
+        Task<bool> DeletePost(int postid);
 
-        Task<ICollection<Post>> SearchAsync(string searchStr);
+        Task<ICollection<Post>> SearchAsync(SearchParameters searchParameter);
 
         Task<ICollection<Post>> GetAllPostAsync();
 
