@@ -67,6 +67,9 @@ namespace PostIt.BackEnd
                     defaults: new { controller = "Start", action = "Index" }
                 );
             });
+
+            loggerFactory.AddFile("Logs/mylog-{Date}.txt");
+       
         }
     }
 }

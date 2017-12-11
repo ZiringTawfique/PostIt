@@ -18,12 +18,14 @@ namespace DataView
             _context = new MongoDBContext(settings);
         }
 
-        public async Task<ICollection<Post>> SearchAsync(string searchStrn)
+        public async Task<ICollection<Post>> SearchAsync(string searchStrn, int PageSize, int PageNo)
         {
 
             try
             {
-                var searchResult = await _context.PostCollection.Find(_ => true).ToListAsync();
+                
+                _context.PostCollection.Indexes.CreateOne(Builders<Post>.IndexKeys.Text(x => x.Title));
+                var searchResult= await _context.PostCollection.Find(Builders<Post>.Filter.Text(searchStrn)).ToListAsync();
 
                 return searchResult;
 

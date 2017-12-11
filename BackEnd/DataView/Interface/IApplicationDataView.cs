@@ -7,7 +7,7 @@ namespace DataView.Interface
 {
     public interface IApplicationDataView
     {
-        Task<ICollection<Post>> SearchAsync(string searchWord);
+        Task<ICollection<Post>> SearchAsync(string searchWord, int PageSize, int PageNo);
         Task <ICollection<Post>> GetAllPostAsync();
         Task<Post> GetSinglePost(int postid);
         Task AddPost(Post post);

@@ -23,7 +23,7 @@ namespace DataView.Adapters
 
         public async Task<ICollection<Post>> SearchAsync(SearchParameters searchParameter)
         {
-            var searchResult = await _applicationDataView.SearchAsync(searchParameter.SearchWord);
+            var searchResult = await _applicationDataView.SearchAsync(searchParameter.SearchWord, searchParameter.PageNo, searchParameter.PageSize);
             var mappedobject = _toDomainModelMappingFacade.Map(searchResult);
             return mappedobject;
         }
