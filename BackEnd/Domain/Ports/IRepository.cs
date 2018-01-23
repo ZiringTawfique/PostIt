@@ -18,6 +18,8 @@ namespace Domain.Ports
 
         Task<ICollection<Post>> GetAllPostAsync();
 
+        Task<ICollection<Post>> GetMyPostsAsync(string username);
+
         Task<Post> GetSinglePost(int postid);
 
 		User GetUserInfor();

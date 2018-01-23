@@ -28,6 +28,8 @@ namespace DataView.Adapters
             return mappedobject;
         }
 
+        #region GET
+       
         public async Task<ICollection<Post>> GetAllPostAsync()
         {
             var allPosts = await _applicationDataView.GetAllPostAsync();
@@ -43,11 +45,21 @@ namespace DataView.Adapters
             
         }
 
+        public async Task<ICollection<Post>> GetMyPostsAsync(string username)
+        {
+                var myPosts = await _applicationDataView.GetMyPostsAsync(username);
+            var mappedObject = _toDomainModelMappingFacade.Map(myPosts);
+            return mappedObject;
+        }
+
         public User GetUserInfor()
         {
             throw new NotImplementedException();
         }
 
+        #endregion
+
+        #region SET
         public void AddPost(Post post)
         {
             var mappedToDataEntity = _toDataEntityMappingFacade.Map(post);
@@ -58,6 +70,8 @@ namespace DataView.Adapters
         {
             throw new NotImplementedException();
         }
+
+        #endregion
 
         public async Task<bool> DeletePost(int postId){
             

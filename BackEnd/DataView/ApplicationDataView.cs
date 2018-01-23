@@ -23,8 +23,8 @@ namespace DataView
 
             try
             {
-                
                 _context.PostCollection.Indexes.CreateOne(Builders<Post>.IndexKeys.Text(x => x.Title));
+                
                 var searchResult= await _context.PostCollection.Find(Builders<Post>.Filter.Text(searchStrn)).ToListAsync();
 
                 return searchResult;
@@ -42,6 +42,7 @@ namespace DataView
             
             try
             {
+                
              var allPosts =  await _context.PostCollection.Find(_ => true).ToListAsync();
              
              return allPosts;
@@ -50,6 +51,25 @@ namespace DataView
             catch (Exception ex)
             {
                 // log or manage the exception
+                throw ex;
+            }
+        }
+
+
+        public async Task<ICollection<Post>> GetMyPostsAsync(string username)
+        {
+            try
+            {
+                var filter = Builders<Post>.Filter.Eq(x => x.User.Username, username);
+                
+                var myPosts = await _context.PostCollection.FindSync(filter).ToListAsync();
+
+                return myPosts;
+            }
+
+
+            catch (Exception ex)
+            {
                 throw ex;
             }
         }
@@ -91,7 +111,8 @@ namespace DataView
             {
                 var builder = Builders<Post>.Filter;
                 var filter = builder.Eq(x => x.PostId, postId);
-                var deletePost =  await _context.PostCollection.DeleteOneAsync(filter);
+                var deletePost =  await _context.PostCollection
+                                                .DeleteOneAsync(filter);
 
                 return deletePost.IsAcknowledged && deletePost.DeletedCount > 0;
             }
@@ -102,5 +123,6 @@ namespace DataView
             }
 
         }
+
     }
 }

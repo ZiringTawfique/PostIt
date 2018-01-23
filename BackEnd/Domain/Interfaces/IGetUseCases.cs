@@ -13,6 +13,8 @@ namespace Domain.Interfaces
 
         Task<Post> GetSinglePost(int postid);
 
+        Task<ICollection<Post>> GetMyPosts(string username);
+       
         User GetUserInfor();
     }
 }   

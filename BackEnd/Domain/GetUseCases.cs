@@ -28,17 +28,24 @@ namespace Domain
             return await _mongoRepo.GetSinglePost(postid);
         }
 
+
+        public async Task<ICollection<Post>> GetMyPosts(string username)
+        {
+            return await _mongoRepo.GetMyPostsAsync(username);
+        }
+
+
         public User GetUserInfor()
         {
             throw new NotImplementedException();
         }
 
 
-
         public async Task<bool> DeletePost(int postid){
 
             return await _mongoRepo.DeletePost(postid);
         }
+
 
     }
 

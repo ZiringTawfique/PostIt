@@ -45,6 +45,12 @@ namespace PostIt.BackEnd.Controllers
             return await _getUseCases.GetSinglePost(id);
         }
 
+        [HttpGet("my-posts")]
+        public async Task<ICollection<Post>> GetMyPosts(string username)
+        {
+            return await _getUseCases.GetMyPosts(username);
+        }
+
         #endregion
  
         #region Post
@@ -56,7 +62,6 @@ namespace PostIt.BackEnd.Controllers
 
             try
             {
-
 
                 if (searchParameter == null)
                 {
@@ -91,6 +96,12 @@ namespace PostIt.BackEnd.Controllers
 
         //}
 
+
+
+        #region Delete
+
+       
+
         // DELETE api/values/5
         [HttpDelete("{id}")]
         public async Task<bool> Delete(int id)
@@ -106,4 +117,6 @@ namespace PostIt.BackEnd.Controllers
 
 
     }
+
+        #endregion
 }
