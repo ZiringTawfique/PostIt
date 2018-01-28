@@ -9,5 +9,7 @@
     <Folder Include="Interfaces\" />
     <Folder Include="Ports\" />
     <Folder Include="Aggregate\" />
+    <Folder Include="Model\Enum\" />
+    <Folder Include="Exceptions\" />
   </ItemGroup>
 </Project>

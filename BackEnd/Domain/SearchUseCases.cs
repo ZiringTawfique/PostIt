@@ -19,9 +19,9 @@ namespace Domain
         }
 
 
-        public async Task<ICollection<Post>> SearchAsync(SearchParameters searchParameter)
+        public Task<ICollection<Post>> SearchAsync(SearchParameters searchParameter)
         {
-            return await _mongoRepo.SearchAsync(searchParameter);
+            return  _mongoRepo.SearchAsync(searchParameter);
         }
     }
 }

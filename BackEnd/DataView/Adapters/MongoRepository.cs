@@ -47,7 +47,7 @@ namespace DataView.Adapters
 
         public async Task<ICollection<Post>> GetMyPostsAsync(string username)
         {
-                var myPosts = await _applicationDataView.GetMyPostsAsync(username);
+            var myPosts = await _applicationDataView.GetMyPostsAsync(username);
             var mappedObject = _toDomainModelMappingFacade.Map(myPosts);
             return mappedObject;
         }
