@@ -3,7 +3,7 @@ namespace Domain.Exceptions
 {
     public class PostTypeIsUnknownException:Exception
     {
-        private const string message = "The post type is uknown";
+        private const string message = "THE POST TYPE IS UNKNOWN";
 
         public PostTypeIsUnknownException():base(ErrorMessage)
         {

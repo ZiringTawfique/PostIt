@@ -30,6 +30,8 @@ namespace Domain.Model
 
 
         public PostType PostType {
+
+            //When you get a post object, automatically set its type
             get{
                 if (ItemInfo != null) return PostType.ItemForSale;
                 if (RecommendationPost != null) return PostType.Recommendation;
