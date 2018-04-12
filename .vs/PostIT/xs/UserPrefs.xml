@@ -1,0 +1,17 @@
+﻿<Properties StartupConfiguration="{86BEDF64-48DB-4B1C-9D97-E8AFD3BA5F89}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="PostIT/Views/MainPage.cs">
+    <Files>
+      <File FileName="PostIT/Views/MainPage.cs" Line="36" Column="40" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.PostIT.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.F06379DB-EC44-48F6-9C83-1B82DE4CBF96">
+    <MonoDevelop.MacDev.AppleDevelopmentTeam />
+  </MonoDevelop.Ide.ItemProperties.PostIT.iOS>
+  <MonoDevelop.Ide.ItemProperties.PostIT.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" AndroidDesignerPreferredTheme="Theme.DeviceDefault.NoActionBar.Fullscreen" />
+</Properties>
