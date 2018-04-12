@@ -18,7 +18,7 @@ namespace DataView
             _context = new MongoDBContext(settings);
         }
 
-        public async Task<ICollection<Post>> SearchAsync(string searchStrn, int PageSize, int PageNo)
+        public async Task<ICollection<Post>> SearchAsync(SearchParameters searchParameter)
         {
 
             try
