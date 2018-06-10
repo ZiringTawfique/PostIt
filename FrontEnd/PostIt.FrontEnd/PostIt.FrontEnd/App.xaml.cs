@@ -8,8 +8,8 @@ namespace PostIt.FrontEnd
         public App()
         {
             InitializeComponent();
-
-            MainPage = new MainPage();
+            var nav = new NavigationPage(new MainPage());
+            MainPage = nav;
         }
 
         protected override void OnStart()
