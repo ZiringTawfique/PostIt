@@ -39,3 +39,11 @@ Thumbs.db
 
 # dotCover
 *.dotCover
+
+# Visual Studio profiler
+*.psess
+*.vsp
+*.vspx
+
+# Visual Studio temp something
+.vs/
