@@ -1,9 +1,7 @@
-<Project Sdk="Microsoft.NET.Sdk">
-
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
-
   <ItemGroup>
     <Folder Include="Model\" />
     <Folder Include="Interfaces\" />
@@ -11,5 +9,8 @@
     <Folder Include="Aggregate\" />
     <Folder Include="Model\Enum\" />
     <Folder Include="Exceptions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="7.0.0" />
   </ItemGroup>
 </Project>

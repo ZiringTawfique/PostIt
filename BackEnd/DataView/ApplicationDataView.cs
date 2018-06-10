@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using MongoDB.Driver;
 using DataView.Interface;
 using DataView.DataEntities;
+using Domain.Aggregate;
 
 namespace DataView
 {
@@ -18,14 +19,14 @@ namespace DataView
             _context = new MongoDBContext(settings);
         }
 
-        public async Task<ICollection<Post>> SearchAsync(SearchParameters searchParameter)
+		public async Task<ICollection<Post>> SearchAsync(SearchParameters searchParameter)
         {
 
             try
             {
                 _context.PostCollection.Indexes.CreateOne(Builders<Post>.IndexKeys.Text(x => x.Title));
                 
-                var searchResult= await _context.PostCollection.Find(Builders<Post>.Filter.Text(searchStrn)).ToListAsync();
+				var searchResult= await _context.PostCollection.Find(Builders<Post>.Filter.Text(searchParameter.SearchWord)).ToListAsync();
 
                 return searchResult;
 
