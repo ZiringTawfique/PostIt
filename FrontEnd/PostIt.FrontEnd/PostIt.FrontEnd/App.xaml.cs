@@ -8,7 +8,7 @@ namespace PostIt.FrontEnd
         public App()
         {
             InitializeComponent();
-            var nav = new NavigationPage(new MainPage());
+			var nav = new NavigationPage(new PostListPage());
             MainPage = nav;
         }
 

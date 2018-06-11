@@ -6,5 +6,7 @@ namespace PostIt.FrontEnd.Models
         public Post()
         {
         }
+
+        
     }
 }

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage Title="{Binding Path =PostList.Count, StringFormat='{0} PostLists'}" 
+             xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PostIt.FrontEnd" 
+             x:Class="PostIt.FrontEnd.PostListPage">
+    
+
+
+<ListView x:Name="postlistListView"
+          SelectedItem="{Binding SelectedPost, Mode=TwoWay}"
+          ItemsSource="{Binding PostLists}"
+          ItemSelected="OnPostListSelected">
+        
+        
+    </ListView>
+    <Label Text="Our First Page" VerticalOptions="Center" HorizontalOptions="Center" />
+</ContentPage>
