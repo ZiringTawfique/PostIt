@@ -1,22 +1,44 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using PostIt.FrontEnd.Models;
+using BackEndService;
+using BackEndService.Interfaces;
+using Model;
 
 namespace PostIt.FrontEnd.ViewModel
 {
     public class PostListsViewModel
     {
+		private readonly IPostService _postService;
 		public ObservableCollection<Post> PostLists { get; private set; } = new ObservableCollection<Post>();
-		public Post SelectedPost { get; set; }
+        public Post SelectedPost { get; set; }
 
-		public void SelectPost(Post post){
+		public PostListsViewModel(IPostService postService)
+
+		{
+			_postService = postService;
+		}
+
+		public void GetAPost(int x)
+		{
+			_postService.GetPost(x);
+		}
+        
+    
+		public void SelectPost(Post post)
+		{
 
 			if (post == null)
 				return;
-
-
-			SelectedPost = null;
+                
+			SelectedPost = new Post{ Price=1};
 
 		}
     }
 }
+
+
+
+
+
+
+

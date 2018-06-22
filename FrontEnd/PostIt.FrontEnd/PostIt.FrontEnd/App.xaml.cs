@@ -1,15 +1,21 @@
-﻿using PostIt.FrontEnd.Views;
+﻿using BackEndService;
+using BackEndService.Interfaces;
+using PostIt.FrontEnd.Views;
+using Unity;
 using Xamarin.Forms;
 
 namespace PostIt.FrontEnd
 {
     public partial class App : Application
     {
+		public static UnityContainer UnityContainer { get; set; }
+
         public App()
         {
             InitializeComponent();
 			var nav = new NavigationPage(new PostListPage());
-            MainPage = nav;
+            MainPage = nav;       
+            
         }
 
         protected override void OnStart()
