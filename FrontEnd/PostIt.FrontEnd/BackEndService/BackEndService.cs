@@ -22,10 +22,16 @@ namespace BackEndService
         public async Task<T> GetStringAsync<T>(string uri = "")
         {
 
-            Task<string> getStringTask = Client.GetStringAsync(uri);
-            string urlContents = await getStringTask;
+			var response = await Client.GetAsync(uri);
 
-            return JsonConvert.DeserializeObject<T>(urlContents);
+			if (response.IsSuccessStatusCode){
+
+				var result = response.Content.ReadAsStringAsync().Result;
+				return JsonConvert.DeserializeObject<T>(result);
+			}
+
+			return default(T);
+            
         }
 
         protected async Task<HttpResponseMessage> PostAsync<T>(T content, string actionName = "")

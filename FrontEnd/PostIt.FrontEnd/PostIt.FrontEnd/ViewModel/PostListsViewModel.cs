@@ -18,9 +18,9 @@ namespace PostIt.FrontEnd.ViewModel
 			_postService = postService;
 		}
 
-		public void GetAPost(int x)
+		public void GetAPost(int postId)
 		{
-			_postService.GetPost(x);
+			_postService.GetAPost(postId);
 		}
         
     

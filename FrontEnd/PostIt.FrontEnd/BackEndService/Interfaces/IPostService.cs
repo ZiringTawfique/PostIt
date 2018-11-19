@@ -11,6 +11,6 @@ namespace BackEndService.Interfaces
         //Task<HttpResponseMessage> AssignToRequests(ICollection<RequestAssignmentParameters> requestAssignmentParameters);
 
 
-        Task<Post> GetPost(int id);
+		Task<Post> GetAPost(int postId);
     }
 }
